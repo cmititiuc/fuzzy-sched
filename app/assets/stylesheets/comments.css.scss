@@ -2,19 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-form.new_comment div.field, form.edit_comment div.field { vertical-align: bottom; margin: 0; }
+@mixin wordwrap {
+   white-space: pre-wrap;      /* CSS3 */
+   white-space: -moz-pre-wrap; /* Firefox */
+   white-space: -pre-wrap;     /* Opera <7 */
+   white-space: -o-pre-wrap;   /* Opera 7 */
+   word-wrap: break-word;      /* IE */
+}
+
+form.new_comment div.field, form.edit_comment div.field {
+  vertical-align: bottom; margin: 0;
+}
 td.comment_actions a { font-size: x-small; }
 td { padding: 1em; vertical-align: top; }
 textarea { margin: 0; padding: 0; width: 100%; height: 41px; }
 td.commentable_link a { font-size: medium; }
-td.comment { line-height: 1.5em; }
+td.comment { @include wordwrap; line-height: 1.5em; }
 td p { padding-top: 0; margin-top: 0; }
-.notice { width: 99%; background-color: green; padding: .5em; color: white; font-weight: bold; margin: 1px; }
-.error { width: 99%; background-color: #CC0000; padding: .5em; color: white; font-weight: bold; margin: 1px; }
+.notice { width: 99%; background-color: green; padding: .5em; color: white;
+          font-weight: bold; margin: 1px; }
+.error { width: 99%; background-color: #CC0000; padding: .5em; color: white;
+         font-weight: bold; margin: 1px; }
 .remove_notice { float: right; cursor: pointer; }
 .cancel { float: right; }
 .cancel a { font-size: x-small; }
 .comment_container:hover { background-color: #EEEEEE; }
-#list {
-   border-collapse: collapse;
-}
+#list { border-collapse: collapse; }
