@@ -13,7 +13,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :rails_env, 'production'
 set :domain, 'ophect.me'
 set :deploy_to, '/home/deployer/fuzzy-sched'
-set :repository, 'https://github.com/cmititiuc/fuzzy-sched.git'
+set :repository, 'https://fa75e41b98b84564cb7130f11927c5ee98e4f836@github.com/cmititiuc/fuzzy-sched.git'
 set :branch, 'master'
 
 # For system-wide RVM install.
