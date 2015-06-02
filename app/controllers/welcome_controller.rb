@@ -3,12 +3,4 @@ class WelcomeController < ApplicationController
   layout 'welcome'
   def index
   end
-
-  def download_resume
-    send_file(
-      "#{Rails.root}/public/resume.pdf",
-      filename: "Resume-CatalinMititiuc.pdf",
-      type: "application/pdf"
-    )
-  end
 end

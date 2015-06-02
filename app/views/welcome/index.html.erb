@@ -1,6 +1,6 @@
 <div class="grid" style="padding-bottom: 20px; padding-top: 20px; margin-bottom: 10px;">
   <div class="col-5-12" style="text-align:center"><h1>Catalin Constantin Mititiuc</h1></div>
-  <div class="col-2-12" style="text-align:center"><h2><%= link_to 'Resume', welcome_download_resume_path %></h2></div>
+  <div class="col-2-12" style="text-align:center"><h2><%= link_to 'Resume', '/ResumeCatalinMititiuc.pdf' %></h2></div>
   <div class="col-4-12" style="text-align:center"><h2><%= link_to 'Catalin.Mititiuc@gmail.com', 'mailto:Catalin.Mititiuc@gmail.com' %></h2></div>
   <div class="col-1-12" style="text-align:center">
     <%#= link_to "&nbsp;".html_safe, comments_path, :class=>'secret-link' %>
@@ -11,33 +11,38 @@
 
 <div class="grid grid-pad" style="max-width: 1140px;">
   <div class="col-9-12">
-    <h1 style="text-align: center;">Installing Ubuntu 15.04 "Vivid Vervet" on a Lenovo T450</h1>
+    <h1 style="text-align: center;">Ruby on Rails Workstation Setup on a Lenovo T450</h1>
     <p style="padding-bottom: 10px;">Wednesday, May 13, 2015</p>
     <ol>
-      <li>Turn off EFI (change 2 settings in BIOS)</li>
-      <li>Download "Vivid Vervet" ubuntu-15.04-desktop-amd64.iso</li>
-      <li>Use gparted to create a single FAT32 partition on a USB drive.  It has to be FAT32 for usb-creator.</li>
-      <li>Use usb-creator (Ubuntu's start disk utility) to make a liveusb</li>
-      <li>Boot from the stick</li>
-      <li>Connect to internet</li>
-      <li>Select "Install ubuntu"</li>
-      <li>Partition > 'Something else': 19999 MB to /, 16012 MB swap, 480105 MB /home</li>
-      <li>Encrypt home folder</li>
       <li>
-        After install finish and reboot, System settings > privacy
-        <ul>
-          <li>search > include online: off</li>
-          <li>files and applications > record: off</li>
-          <li>power management > shutdown on low power</li>
-          <li>touchpad settings</li>
-        </ul>
+        Install Ubuntu
+        <ol>
+          <li>Turn off EFI (change 2 settings in BIOS)</li>
+          <li>Download "Vivid Vervet" ubuntu-15.04-desktop-amd64.iso</li>
+          <li>Use gparted to create a single FAT32 partition on a USB drive.  It has to be FAT32 for usb-creator.</li>
+          <li>Use usb-creator (Ubuntu's start disk utility) to make a liveusb</li>
+          <li>Boot from the stick</li>
+          <li>Connect to internet</li>
+          <li>Select "Install ubuntu"</li>
+          <li>Partition > 'Something else': 19999 MB to /, 16012 MB swap, 480105 MB /home</li>
+          <li>Encrypt home folder</li>
+          <li>
+            After install finish and reboot, System settings > privacy
+            <ul>
+              <li>search > include online: off</li>
+              <li>files and applications > record: off</li>
+              <li>power management > shutdown on low power</li>
+              <li>touchpad settings</li>
+            </ul>
+          </li>
+          <li>Remove amazon from bar</li>
+          <li>Right click on amazon icon in apps menu and uninstall</li>
+          <li>Filter results set to 'local apps'</li>
+          <li>sudo apt-get update</li>
+          <li>sudo apt-get dist-upgrade</li>
+          <li>restart</li>
+        </ol>
       </li>
-      <li>Remove amazon from bar</li>
-      <li>Right click on amazon icon in apps menu and uninstall</li>
-      <li>Filter results set to 'local apps'</li>
-      <li>sudo apt-get update</li>
-      <li>sudo apt-get dist-upgrade</li>
-      <li>restart</li>
       <li>
         Set up firefox
         <ul>
@@ -50,7 +55,7 @@
         </ul>
       </li>
       <li>
-        get rid of touchpad bottom button touch area
+        Get rid of touchpad bottom button touch area
         <ol>
           <li>cp /usr/share/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/</li>
           <li>then edit that section and set all the %'s to 0's</li>
