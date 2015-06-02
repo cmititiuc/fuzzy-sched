@@ -1,0 +1,122 @@
+<div class="grid" style="padding-bottom: 20px; padding-top: 20px; margin-bottom: 10px;">
+  <div class="col-5-12" style="text-align:center"><h1>Catalin Constantin Mititiuc</h1></div>
+  <div class="col-2-12" style="text-align:center"><h2><%= link_to 'Resume', welcome_download_resume_path %></h2></div>
+  <div class="col-4-12" style="text-align:center"><h2><%= link_to 'Catalin.Mititiuc@gmail.com', 'mailto:Catalin.Mititiuc@gmail.com' %></h2></div>
+  <div class="col-1-12" style="text-align:center">
+    <%#= link_to "&nbsp;".html_safe, comments_path, :class=>'secret-link' %>
+    <%= link_to comments_path do %>
+      <div class="secret-link" style="min-height: 50px; width: 50px;"></div><% end %>
+  </div>
+</div>
+
+<div class="grid grid-pad" style="max-width: 1140px;">
+  <div class="col-1-1"><h1>Installing Ubuntu 15.04 "Vivid Vervet" on a Lenovo T450</h1></div>
+  <div class="col-1-1">Wednesday, May 13, 2015</div>
+  <div class="col-1-1">
+    <ol>
+      <li>Turn off EFI (change 2 settings in BIOS)</li>
+      <li>Download "Vivid Vervet" ubuntu-15.04-desktop-amd64.iso</li>
+      <li>Use gparted to create a single FAT32 partition on a USB drive.  It has to be FAT32 for usb-creator.</li>
+      <li>Use usb-creator (Ubuntu's start disk utility) to make a liveusb</li>
+      <li>Boot from the stick</li>
+      <li>Connect to internet</li>
+      <li>Select "Install ubuntu"</li>
+      <li>Partition > 'Something else': 19999 MB to /, 16012 MB swap, 480105 MB /home</li>
+      <li>Encrypt home folder</li>
+      <li>
+        After install finish and reboot, System settings > privacy
+        <ul>
+          <li>search > include online: off</li>
+          <li>files and applications > record: off</li>
+          <li>power management > shutdown on low power</li>
+          <li>touchpad settings</li>
+        </ul>
+      </li>
+      <li>Remove amazon from bar</li>
+      <li>Right click on amazon icon in apps menu and uninstall</li>
+      <li>Filter results set to 'local apps'</li>
+      <li>sudo apt-get update</li>
+      <li>sudo apt-get dist-upgrade</li>
+      <li>restart</li>
+      <li>
+        Set up firefox
+        <ul>
+          <li>preferences > search to duckduckgo</li>
+          <li>set "do not track"</li>
+          <li>old tabs on restart</li>
+          <li>set firefox tracking protection (https://support.mozilla.org/en-US/kb/tracking-protection-firefox) (this actually breaks some sites eg http://redditplayer.phoenixforgotten.com)</li>
+          <li>unset "enhanced" tabs</li>
+          <li>install ublock addon</li>
+        </ul>
+      </li>
+      <li>
+        get rid of touchpad bottom button touch area
+        <ol>
+          <li>cp /usr/share/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/</li>
+          <li>then edit that section and set all the %'s to 0's</li>
+          <li>log out and back in</li>
+        </ol>
+      </li>
+      <li>
+        Set up GitHub
+        <ul>
+          <li>add ssh key (https://help.github.com/articles/generating-ssh-keys/)</li>
+          <li>install git sudo apt-get install git</li>
+          <li>set up username (https://help.github.com/articles/setting-your-username-in-git/)</li>
+          <li>set up email (https://help.github.com/articles/setting-your-email-in-git/)</li>
+        </ul>
+      </li>
+      <li>
+      Install RVM, Ruby and Rails
+        <ol>
+          <li>sudo apt-get install curl</li>
+          <li>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</li>
+          <li>\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.2.2</li>
+          <li>set 'run command as login shell' option in terminal profile</li>
+          <li>restart terminal</li>
+          <li>type type rvm | head -n 1</li>
+          <li>should say rvm is a function (not rvm is hashed)</li>
+          <li>git clone the app from repo</li>
+          <li>bundle install</li>
+          <li>sudo apt-get install nodejs</li>
+          <li>rake db:setup</li>
+          <li>rails s</li>
+        </ol>
+      </li>
+      <li>
+        Install VLC
+        <ul>
+          <li>sudo apt-get install vlc</li>
+          <li>Uncheck "Accelerated Video Output" in video preferences</li>
+        </ul>
+      </li>
+      <li>
+        Install Sublime Text 3
+        <ul>
+          <li>
+            ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings<br />
+            {<br />
+            "tab_size": 2,<br />
+            "translate_tabs_to_spaces": true,<br />
+            "word_wrap": false<br />
+            }
+          </li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>KNOWN ISSUES</h3>
+    <ul>
+      <li>
+        https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1457369<br />
+        installing a newer kernel fixed the issue (for example, 4.1.0-040100rc2-generic and HDMI audio works)<br />
+        https://wiki.ubuntu.com/Kernel/MainlineBuilds
+      </li>
+      <li>
+        screen flicker after suspend and resume<br />
+        looks like it's fixed in 4.1-rc5<br />
+        https://github.com/torvalds/linux/commit/bb4358973ae2c0b7ead1fdd36e0e75943009e60c
+      </li>
+    </ul>
+  </div>
+</div>
