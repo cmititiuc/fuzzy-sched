@@ -1,11 +1,10 @@
 <div class="grid" style="padding-bottom: 20px; padding-top: 20px; margin-bottom: 10px;">
-  <div class="col-5-12" style="text-align:center"><h1>Catalin Constantin Mititiuc</h1></div>
-  <div class="col-2-12" style="text-align:center"><h2><%= link_to 'Resume', '/ResumeCatalinMititiuc.pdf' %></h2></div>
-  <div class="col-4-12" style="text-align:center"><h2><%= link_to 'Catalin.Mititiuc@gmail.com', 'mailto:Catalin.Mititiuc@gmail.com' %></h2></div>
-  <div class="col-1-12" style="text-align:center">
-    <%#= link_to "&nbsp;".html_safe, comments_path, :class=>'secret-link' %>
-    <%= link_to comments_path do %>
-      <div class="secret-link" style="min-height: 50px; width: 50px;"></div><% end %>
+  <div class="col-1-3" style="text-align:center"><h1>Catalin Constantin Mititiuc</h1></div>
+  <div class="col-1-3" style="text-align:center"><h2><%= link_to 'Resume', '/ResumeCatalinMititiuc.pdf' %></h2></div>
+  <div class="col-1-3" style="text-align:center">
+    <h2><%= link_to 'Catalin.Mititiuc@gmail.com', 'mailto:Catalin.Mititiuc@gmail.com' %>    <%= link_to comments_path do %>
+      <div class="secret-link" style="min-height: 10px; width: 10px;"></div>
+    <% end %></h2>
   </div>
 </div>
 
@@ -15,32 +14,32 @@
     <p style="padding-bottom: 10px;">Wednesday, May 13, 2015</p>
     <ol>
       <li>
-        Install Ubuntu
+        Install Ubuntu (using another Ubuntu system to create the install media)
         <ol>
-          <li>Turn off EFI (change 2 settings in BIOS)</li>
+          <li>Turn off UEFI (2 settings in BIOS: one about turning off UEFI, another about installing non-UEFI OS's)</li>
           <li>Download "Vivid Vervet" ubuntu-15.04-desktop-amd64.iso</li>
           <li>Use gparted to create a single FAT32 partition on a USB drive.  It has to be FAT32 for usb-creator.</li>
-          <li>Use usb-creator (Ubuntu's start disk utility) to make a liveusb</li>
-          <li>Boot from the stick</li>
-          <li>Connect to internet</li>
+          <li>Use usb-creator (Ubuntu's start disk utility) to make a live USB</li>
+          <li>Boot from live USB</li>
+          <li>Set up internet connection</li>
           <li>Select "Install ubuntu"</li>
-          <li>Partition > 'Something else': 19999 MB to /, 16012 MB swap, 480105 MB /home</li>
-          <li>Encrypt home folder</li>
+          <li>Partition (eg I selected 'Something else' and partitioned like so: 19999 MB to /, 16012 MB swap, 480105 MB /home)</li>
+          <li>Select 'Encrypt home folder'</li>
           <li>
-            After install finish and reboot, System settings > privacy
+            After install finishes and system reboots: System settings > privacy
             <ul>
               <li>search > include online: off</li>
               <li>files and applications > record: off</li>
               <li>power management > shutdown on low power</li>
-              <li>touchpad settings</li>
+              <li>touchpad settings > deselect 'tap to click'</li>
             </ul>
           </li>
-          <li>Remove amazon from bar</li>
-          <li>Right click on amazon icon in apps menu and uninstall</li>
-          <li>Filter results set to 'local apps'</li>
+          <li>Remove Amazon from launcher (right click)</li>
+          <li>In apps menu, right click on Amazon icon and uninstall</li>
+          <li>Set filter results to 'local apps'</li>
           <li>sudo apt-get update</li>
           <li>sudo apt-get dist-upgrade</li>
-          <li>restart</li>
+          <li>Restart the system</li>
         </ol>
       </li>
       <li>
@@ -100,15 +99,22 @@
         <ul>
           <li>
             ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings<br />
-            {<br />
-            "tab_size": 2,<br />
-            "translate_tabs_to_spaces": true,<br />
-            "word_wrap": false<br />
-            }
+            <code>
+              {<br />
+              "tab_size": 2,<br />
+              "translate_tabs_to_spaces": true,<br />
+              "word_wrap": false<br />
+              }<br />
+            </code>
           </li>
         </ul>
       </li>
     </ol>
+
+    <h3>TO DO</h3>
+    <ul>
+      <li>security (specifically, firewall)</li>
+    </ul>
 
     <h3>KNOWN ISSUES</h3>
     <ul>

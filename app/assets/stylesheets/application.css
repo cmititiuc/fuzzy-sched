@@ -33,9 +33,6 @@
 }
 
 .secret-link {
-  
-}
-
-.secret-link:hover {
-  background-color: red;
+  /*border: 1px solid blue;*/
+  display: inline-block;
 }
