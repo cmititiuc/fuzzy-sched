@@ -23,8 +23,9 @@
   /*color: #000033;*/
 }
 
-.grid div {
+.grid div, li, p {
   /*border: 1px solid red;*/
+  line-height: 1.5em;
 }
 
 .welcome {
