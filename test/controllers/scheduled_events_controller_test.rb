@@ -3,6 +3,7 @@ require 'test_helper'
 class ScheduledEventsControllerTest < ActionController::TestCase
   setup do
     @scheduled_event = scheduled_events(:one)
+    sign_in @scheduled_event.user
   end
 
   test "should get index" do

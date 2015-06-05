@@ -3,6 +3,7 @@ require 'test_helper'
 class SchedulesControllerTest < ActionController::TestCase
   setup do
     @schedule = schedules(:one)
+    sign_in @schedule.user
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class SchedulesControllerTest < ActionController::TestCase
 
   test "should create schedule" do
     assert_difference('Schedule.count') do
-      post :create, schedule: { string: @schedule.string }
+      post :create, schedule: { name: @schedule.name }
     end
 
     assert_redirected_to schedule_path(assigns(:schedule))
@@ -35,7 +36,7 @@ class SchedulesControllerTest < ActionController::TestCase
   end
 
   test "should update schedule" do
-    patch :update, id: @schedule, schedule: { string: @schedule.string }
+    patch :update, id: @schedule, schedule: { name: @schedule.name }
     assert_redirected_to schedule_path(assigns(:schedule))
   end
 

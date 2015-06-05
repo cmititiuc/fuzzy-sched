@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  day: MyString
+  day: Monday
+  schedule: one
+  event: one
+  user: one
 
 two:
-  day: MyString
+  day: Tuesday
+  schedule: two
+  event: two
+  user: two
