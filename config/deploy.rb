@@ -21,7 +21,7 @@ set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml']
+set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml', 'public/files']
 
 # Optional settings:
   set :user, 'deployer'    # Username in the server to SSH to.
@@ -36,7 +36,7 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby-2.1.5@default]'
+  invoke :'rvm:use[ruby-2.2.2@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
