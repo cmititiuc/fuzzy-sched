@@ -14,6 +14,19 @@
  *= require_self
  */
 
+.grid div li, .grid p {
+  font-family: georgia;
+  font-size: 120%;
+}
+
+li h2 {
+  font-size: 120%;
+}
+
+h1, h2, h3 {
+  font-family: sans-serif;
+}
+
 #nav_links_container {
   margin-bottom: 4em;
 }

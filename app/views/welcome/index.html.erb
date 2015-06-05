@@ -7,7 +7,7 @@
     <p style="padding-bottom: 10px;">Wednesday, May 13, 2015</p>
     <ol>
       <li>
-        Install Ubuntu (using another Ubuntu system to create the install media)
+        <h2>Install Ubuntu</h2>
         <ol>
           <li>Turn off UEFI (2 settings in BIOS: one about turning off UEFI, another about installing non-UEFI OS's)</li>
           <li>Download "Vivid Vervet" ubuntu-15.04-desktop-amd64.iso</li>
@@ -36,7 +36,7 @@
         </ol>
       </li>
       <li>
-        Set up firefox
+        <h2>Set up Firefox</h2>
         <ul>
           <li>preferences > search to duckduckgo</li>
           <li>set "do not track"</li>
@@ -47,7 +47,7 @@
         </ul>
       </li>
       <li>
-        Get rid of touchpad bottom button touch area
+        <h2>Get rid of touchpad bottom button touch area</h2>
         <ol>
           <li>cp /usr/share/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/</li>
           <li>then edit that section and set all the %'s to 0's</li>
@@ -55,7 +55,7 @@
         </ol>
       </li>
       <li>
-        Set up GitHub
+        <h2>Set up GitHub</h2>
         <ul>
           <li>add ssh key (https://help.github.com/articles/generating-ssh-keys/)</li>
           <li>install git sudo apt-get install git</li>
@@ -63,8 +63,10 @@
           <li>set up email (https://help.github.com/articles/setting-your-email-in-git/)</li>
         </ul>
       </li>
+      <li><h2>Install PostgreSQL</h2></li>
+        <ul><li>http://stackoverflow.com/questions/11092807/installing-postgresql-on-ubuntu-for-ruby-on-rails</li></ul>
       <li>
-      Install RVM, Ruby and Rails
+      <h2>Install RVM, Ruby and Rails</h2>
         <ol>
           <li>sudo apt-get install curl</li>
           <li>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</li>
@@ -81,17 +83,18 @@
         </ol>
       </li>
       <li>
-        Install VLC
+        <h2>Install VLC</h2>
         <ul>
           <li>sudo apt-get install vlc</li>
           <li>Uncheck "Accelerated Video Output" in video preferences</li>
         </ul>
       </li>
       <li>
-        Install Sublime Text 3
+        <h2>Install Sublime Text 3</h2>
         <ul>
+          <li><%= link_to 'http://www.sublimetext.com/3', 'http://www.sublimetext.com/3' %></li>
           <li>
-            ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings<br />
+            create ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings<br />
             <code>
               {<br />
               "tab_size": 2,<br />
@@ -125,7 +128,12 @@
   </div>
   <div class="col-3-12">
     <h1 style="text-align: center;">Current Projects</h1>
-      <%= link_to 'asocial-feed.herokuapp.com', 'https://asocial-feed.herokuapp.com' %>
+      <p><%= link_to 'asocial-feed.herokuapp.com', 'https://asocial-feed.herokuapp.com' %></p>
       <p>A personal message feed.  Leave personal messages for yourself.  No one else can read or see them.</p>
   </div>
+</div>
+
+<div class="grid footer">
+  <div class="col-2-12"><h3>About</h3></div>
+  <div class="col-2-12"><h3><%= link_to 'Sign In', comments_path %></h3></div>
 </div>
