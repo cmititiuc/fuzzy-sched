@@ -17,9 +17,3 @@ $(document).ready ->
         $('.header').css 'border-bottom', '2px solid #000000'
         $('.header').animate { padding: '0' }, duration
         atTheTop = false
-
-  $('body').prepend \
-    'window width: ' + $(window).width() +
-    ' window height: ' + $(window).height() +
-    ' screen width: ' + screen.width +
-    ' screen height: ' + screen.height
