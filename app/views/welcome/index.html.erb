@@ -2,6 +2,11 @@
 <%= render :partial => 'header', :locals => { :css_class => 'grid header-ghost' } %>
 
 <div class="grid grid-pad" style="max-width: 1140px;">
+  <div class="col-3-12" style="float: right;">
+    <h1 style="text-align: center;">Current Projects</h1>
+      <p><%= link_to 'asocial-feed.herokuapp.com', 'https://asocial-feed.herokuapp.com' %></p>
+      <p>A personal message feed.  Leave personal messages for yourself.  No one else can read or see them.</p>
+  </div>
   <div class="col-9-12">
     <h1 style="text-align: center;">Ruby on Rails Workstation Setup on a Lenovo T450</h1>
     <p style="padding-bottom: 10px;">Wednesday, May 13, 2015</p>
@@ -126,11 +131,6 @@
         https://github.com/torvalds/linux/commit/bb4358973ae2c0b7ead1fdd36e0e75943009e60c
       </li>
     </ul>
-  </div>
-  <div class="col-3-12">
-    <h1 style="text-align: center;">Current Projects</h1>
-      <p><%= link_to 'asocial-feed.herokuapp.com', 'https://asocial-feed.herokuapp.com' %></p>
-      <p>A personal message feed.  Leave personal messages for yourself.  No one else can read or see them.</p>
   </div>
 </div>
 
