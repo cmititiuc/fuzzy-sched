@@ -47,11 +47,11 @@ sudo apt-get install nginx-full passenger
 
 sudo service nginx start  
 
-rvm install 2.1.5
+rvm install 2.2.3
 
 edit nginx config:
 passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-passenger_ruby /home/deployer/.rvm/wrappers/ruby-2.1.5/ruby;
+passenger_ruby /home/deployer/.rvm/wrappers/ruby-2.2.3/ruby;
 
 mina setup --verbose
 
@@ -61,7 +61,7 @@ sudo apt-get install nodejs
 
 mina deploy
 
-rvm use 2.1.5 (not sure if I had to do this)
+rvm use 2.2.3 (not sure if I had to do this)
 
 changed database.yml production path to outside source tree so it doesn't get replaced on deploy
 
@@ -132,7 +132,7 @@ http {
   
   passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
   # passenger_ruby /usr/bin/ruby;
-  passenger_ruby /home/deployer/.rvm/wrappers/ruby-2.1.5/ruby;
+  passenger_ruby /home/deployer/.rvm/wrappers/ruby-2.2.3/ruby;
 
   ##
   # Virtual Host Configs
