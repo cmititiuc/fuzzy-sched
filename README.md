@@ -2,70 +2,48 @@
 
 ophect.me
 
-<h4>Deploy Steps (Digital Ocean)</h4>
+### Running this app
 
-generate ssh key
+    sudo apt-get install nodejs
+    bundle install
+    bundle exec rails s
 
-enter ssh key into digitalocean
+### Provision & Deploy (Digital Ocean)
 
-create ubuntu 14.10 droplet
+1. generate ssh key
+2. enter ssh key into digitalocean
+3. create ubuntu 14.10 droplet
+4. ssh in as root
+5. `sudo adduser deployer`
+6. `sudo adduser deployer sudo`
+7. `su deployer`
+8. (on local machine) `ssh-copy-id deployer@ophect.me`
+9. `sudo apt-get update`
+10. `sudo apt-get install curl git-core build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libcurl4-openssl-dev libxml2-dev libxslt1-dev python-software-properties`
+11. `gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3`
+12. `\curl -sSL https://get.rvm.io | bash -s stable`
+13. `source /home/deployer/.rvm/scripts/rvm`
+14. `gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7`
+15. `gpg --armor --export 561F9B9CAC40B2F7 | sudo apt-key add -`
+16. `sudo apt-get install apt-transport-https  `
+17. `sudo sh -c "echo 'deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main' >> /etc/apt/sources.list.d/passenger.list"`
+18. `sudo chown root: /etc/apt/sources.list.d/passenger.list`
+19. `sudo chmod 600 /etc/apt/sources.list.d/passenger.list`
+20. `sudo apt-get update`
+21. `sudo apt-get install nginx-full passenger`
+22. `sudo service nginx start`
+23. `rvm install 2.2.3`
+24. edit nginx config:
+    `passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;`
+    `passenger_ruby /home/deployer/.rvm/wrappers/ruby-2.2.3/ruby;`
+25. `mina setup --verbose`
+26. edit shared/database.yml and shared/secrets.yml
+27. `sudo apt-get install nodejs`
+28. `mina deploy`
+29. `rvm use 2.2.3` (not sure if I had to do this)
+30. changed database.yml production path to outside source tree so it doesn't get replaced on deploy
 
-ssh in as root
-
-sudo adduser deployer
-
-sudo adduser deployer sudo
-
-su deployer
-
-ssh-copy-id deployer@ophect.me
-
-sudo apt-get update
-
-sudo apt-get install curl git-core build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libcurl4-openssl-dev libxml2-dev libxslt1-dev python-software-properties 
-
-\curl -sSL https://get.rvm.io | bash -s stable
-
-gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable
-
-source /home/deployer/.rvm/scripts/rvm
-
-gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7 
-
-gpg --armor --export 561F9B9CAC40B2F7 | sudo apt-key add - 
-
-sudo apt-get install apt-transport-https  
-
-sudo sh -c "echo 'deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main' >> /etc/apt/sources.list.d/passenger.list"
-
-sudo chown root: /etc/apt/sources.list.d/passenger.list  
-sudo chmod 600 /etc/apt/sources.list.d/passenger.list  
-sudo apt-get update  
-
-sudo apt-get install nginx-full passenger 
-
-sudo service nginx start  
-
-rvm install 2.2.3
-
-edit nginx config:
-passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-passenger_ruby /home/deployer/.rvm/wrappers/ruby-2.2.3/ruby;
-
-mina setup --verbose
-
-edit shared/database.yml and shared/secrets.yml
-
-sudo apt-get install nodejs
-
-mina deploy
-
-rvm use 2.2.3 (not sure if I had to do this)
-
-changed database.yml production path to outside source tree so it doesn't get replaced on deploy
-
-<h4>/etc/nginx/nginx.conf</h4>
+###/etc/nginx/nginx.conf
 ````
 user www-data;
 worker_processes 4;
@@ -165,7 +143,7 @@ http {
 # }
 ````
 
-<h4>/etc/nginx/sites-enabled/default</h4>
+### /etc/nginx/sites-enabled/default
 ````
 # You may add here your
 # server {
