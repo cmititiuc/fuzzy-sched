@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
       @commentable = comments_path
       @comment = current_user.comments.build(comment_params)
     # end
- 
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to params[:return] ? params[:return] : @commentable, notice: "Comment created." }
