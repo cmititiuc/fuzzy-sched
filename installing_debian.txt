@@ -1,0 +1,65 @@
+This is me trying to install Debian on my lenovo t450
+
+I plug in the USB drive with my image of Debian on it
+Restart
+Press Enter to interrupt boot sequence
+F12 to boot from a temporary device
+Choose `USB HDD: SanDisk Cruzer Glide` from menu
+Choose graphical install
+Discover that my mousepad doesn't work
+The little nub works, tho!
+Insert USB with missing drivers
+Not the right drivers or something cuz it's not working
+firmware-iwlwifi_0.43_all.deb this one seems to be the right one
+https://packages.debian.org/jessie/all/firmware-iwlwifi/download
+I tried the USB with the drivers in different ports but they aren't being read
+Then I unplug the USB with the OS image on it, and plug the drivers USB into that port
+It reads it ok now and installs the drivers
+
+Ok, after a few failed attempts at swapping out USBs and not getting them read, I restarted the install with both USBs plugged in from the start
+Which seems to be working
+
+Install was completed
+
+su
+enter password
+apt-get install sudo
+sudo adduser m sudo
+add
+m   ALL=(ALL:ALL) ALL
+below
+%sudo   ALL=(ALL:ALL) ALL
+restart terminal
+
+sudo apt-get install arandr
+turn on hdmi monitor
+add this file
+
+~/.asoundrc
+----------------------
+defaults.pcm.card 1
+defaults.pcm.device 3
+defaults.ctl.card 1
+
+restart
+run alsa mixer
+select HDA Intel HDMI (Alsa mixer)
+activate the switch IEC958
+hdmi audio works
+
+add the audio mixer to the panel
+
+notice that windows are laggy when i drag them
+https://www.slightfuture.com/how-to/debian-newer-intel-graphics
+good idea or bad, it works.  windows are no longer laggy
+
+i have to reactivate hdmi sound every time i reboot
+right click on sound notification
+run audio mixer
+check IEC958
+
+
+installing ruby following my instructions from intalling on ubuntu
+Debian GNU/Linux 8
+fails at this step
+\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.2.2

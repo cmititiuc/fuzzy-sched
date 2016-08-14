@@ -1,0 +1,100 @@
+this is me trying to figure out how to deploy ophect.me again
+
+log in to digital ocean
+
+click on my droplet and click on access, hoping there's a place where I can add
+my ssh key
+
+don't see anything like that
+
+ssh deployer@ophect.me
+
+then the password I remember
+
+doesn't work
+
+ssh deploy@ophect.me
+
+nope
+
+ssh root@ophect.me
+
+no luck
+
+ssh m@ophect.me
+
+a-ha!
+
+ls /home/
+
+dokku  m
+
+hmmm, I don't remember ever loggin in as dokku@ophect.me.  i don't know what I
+remembering, then, why I was trying deployer@ophect.me
+
+sudo apt-get update
+
+log out and log back in
+
+88 packages can be updated.
+51 updates are security updates.
+
+New release '16.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+i'm scared, but fuck it, let's try it
+
+do-release-upgrade
+
+something goes wrong, and it terminates before it even begins
+something about not having apt installed
+
+at least try to get some security updates
+
+sudo apt-get upgrade
+
+sudo shutdown -r now
+
+reconnect
+
+delete the old ssh key from /home/dokku/ssh/authorized_keys
+
+log out
+
+ssh-keygen -t rsa -b 4096 -C "m@ophect.me"
+
+cat id_rsa.pub | ssh m@ophect.me "sudo sshcommand acl-add dokku"
+
+sudo: no tty present and no askpass program specified
+
+hmmm
+
+ssh-copy-id m@ophect.me
+
+ssh m@ophect.me
+
+logs me in without a password
+
+copy key from ~/.ssh/authorized_keys to /home/dokku/.ssh/authorized_keys
+
+log out
+
+ssh dokku@ophect.me
+
+logs me in without a password
+
+add my key to my github account (just copy contents of ~/.ssh/id_rsa.pub)
+
+git clone my ophect repo (fuzzy-sched)
+
+git clone git@github.com:cmititiuc/fuzzy-sched.git
+
+cd fuzzy-sched
+
+git remote add dokku dokku@ophect.me:ophect.me
+
+git push dokku master
+
+Everything up-to-date
+
+nice!
