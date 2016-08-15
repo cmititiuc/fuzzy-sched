@@ -71,7 +71,14 @@
         </ul>
       </li>
       <li><h2>Install PostgreSQL</h2></li>
-        <ul><li>http://stackoverflow.com/questions/11092807/installing-postgresql-on-ubuntu-for-ruby-on-rails</li></ul>
+        <ul>
+          <li>
+            http://stackoverflow.com/questions/11092807/installing-postgresql-on-ubuntu-for-ruby-on-rails
+          </li>
+          <li>
+            Allow local connections without a password<br />https://gist.github.com/p1nox/4953113
+          </li>
+        </ul>
       <li>
       <h2>Install RVM, Ruby and Rails</h2>
         <ol>
@@ -84,7 +91,15 @@
           <li>should say rvm is a function (not rvm is hashed)</li>
           <li>git clone the app from repo</li>
           <li>bundle install</li>
-          <li>sudo apt-get install nodejs</li>
+          <li>
+            <span style="text-decoration: line-through;">sudo apt-get install nodejs</span>
+            <ol>
+              <li>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash</li>
+              <li>nvm ls-remote</li>
+              <li>nvm install 6.3.1</li>
+              <li>nvm use 6.3.1 --default</li>
+            </ol>
+          </li>
           <li>rake db:setup</li>
           <li>rails s</li>
         </ol>
