@@ -30,7 +30,7 @@ development:
   database: fuzzy-sched_development
   pool: 5
   timeout: 5000
-  username: fuzzy-sched
+  username: postgres
 
 test:
   adapter: postgresql
@@ -38,7 +38,7 @@ test:
   database: fuzzy-sched_test
   pool: 5
   timeout: 5000
-  username: fuzzy-sched
+  username: postgres
 
 production:
   adapter: postgresql
