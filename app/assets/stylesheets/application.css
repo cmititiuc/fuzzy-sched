@@ -33,9 +33,19 @@ h1, h2, h3 {
 
 .grid div, li, p {
   /*border: 1px solid red;*/
-  line-height: 1.5em;
+  line-height: 150%;
 }
 
 .welcome {
   /*background-color: #000033;*/
+}
+
+pre code {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: block;
+  line-height: 1.6em;
+  font-size: 11px;
+  white-space: pre;
+  word-wrap: normal;
 }
