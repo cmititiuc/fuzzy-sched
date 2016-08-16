@@ -28,7 +28,6 @@
     <div class="col-9-12">
       <% if user_signed_in? && current_user.posts.find_by_id(post.id) %>
         <div style="text-align: right;">
-          <%= link_to 'Show', post %>
           <%= link_to 'Edit', edit_post_path(post) %>
           <%= link_to 'Destroy',
             post,
@@ -44,10 +43,11 @@
         by: <%= post.user.email.gsub(/@.*/, '') %>
       </p>
       <%
-        body = RedCloth.new(post.body)
+        body = RedCloth.new(post.body.truncate(600))
         body.filter_html = true
       %>
       <%= body.to_html.html_safe %>
+      <%= link_to 'Read more', post if post.body.length > 600 %>
     </div>
   <% end %>
 </div>
