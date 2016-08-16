@@ -32,6 +32,7 @@ h1, h2, h3 {
 }
 
 .grid div, li, p {
+  /*uncomment for layout guidelines*/
   /*border: 1px solid red;*/
   line-height: 150%;
 }

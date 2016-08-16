@@ -18,12 +18,12 @@ body {
 
 [class*='col-'] {
   float: left;
-  padding-right: 20px; /* column-space */
+  padding-right: 50px; /* column-space */
 }
 
 .grid {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1024px;
   min-width: 755px;
   margin: 0 auto;
   overflow: hidden;
@@ -37,7 +37,7 @@ body {
 
 .grid-pad {
   padding-top: 10px;
-  padding-left: 10px; /* grid-space to left */
+  padding-left: 50px; /* grid-space to left */
   padding-right: 0px; /* grid-space to right: (grid-space-left - column-space) e.g. 20px-20px=0 */
 }
 
@@ -182,7 +182,7 @@ body {
     padding-left: 20px; /* grid-space to left */
     padding-right: 10px; /* grid-space to right: (grid-space-left - column-space) e.g. 20px-10px=10px */
   }
-  
+
   [class*='col-'] {
     width: auto;
     float: none;
@@ -193,10 +193,10 @@ body {
     padding-left: 0px;
     padding-right: 10px; /* column-space */
   }
-  
-  
+
+
   /* Mobile Layout */
-  
+
   [class*='mobile-col-'] {
     float: left;
     margin-left: 0px;
@@ -207,7 +207,7 @@ body {
     padding-right: 10px; /* column-space */
     padding-bottom: 0px;
   }
-  
+
   .mobile-col-1-1 {
     width: 100%;
   }
