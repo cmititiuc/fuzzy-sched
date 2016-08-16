@@ -6,10 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 if Rails.env == 'development'
+  test_users_count = 2
   password = "test1234"
-  User.new({
-    :email => "test@example.com",
-    :password => password,
-    :password_confirmation => password
-  }).save(:validate => false)
+  test_users_count.times.each do |e|
+    User.new({
+      :email => "test#{e}@example.com",
+      :password => password,
+      :password_confirmation => password
+    }).save(:validate => false)
+  end
 end
