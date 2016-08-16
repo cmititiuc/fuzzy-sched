@@ -1,17 +1,28 @@
 <%= render :partial => 'welcome/header', :locals => { :css_class => 'grid header' } %>
 <p id="notice"><%= notice %></p>
 
-<% if user_signed_in? %>
-  <div><%= link_to 'New Post', new_post_path %></div>
-<% end %>
-
 <div class="grid grid-pad">
+  <% if user_signed_in? %>
+    <div class="col-9-12">
+      <%= link_to 'New Post', new_post_path, :style => 'float: right;' %>
+    </div>
+  <% end %>
   <div class="col-3-12" style="float: right;">
     <h1 style="text-align: center; margin-bottom: 2em">Sample Work</h1>
     <h2>asocial-feed</h2>
-    <p><%= link_to 'link', 'http://asoc.ophect.me' %> | <%= link_to 'source code', 'https://github.com/cmititiuc/asocial-feed' %></p>
-    <p>A small Ruby on Rails application with a PostsgreSQL database, deployed on a Linux VPS using Dokku.</p>
-    <p>It is a personal message feed.  Users can leave private notes for themselves.</p>
+    <p>
+      <%= link_to 'link', 'http://asoc.ophect.me' %>
+      |
+      <%= link_to 'source code', 'https://github.com/cmititiuc/asocial-feed' %>
+    </p>
+    <p>
+      A small Ruby on Rails application with a PostsgreSQL database, deployed
+      on a Linux VPS using Dokku.
+    </p>
+    <p>
+      It is a personal message feed.  Users can leave private notes for
+      themselves.
+    </p>
   </div>
   <% @posts.each do |post| %>
     <div class="col-9-12">
@@ -42,6 +53,10 @@
 </div>
 
 <div class="grid footer">
-  <div class="col-2-12"><h3><%= link_to 'About', welcome_about_path %></h3></div>
-  <div class="col-2-12"><h3><%= link_to 'Sign In', new_user_session_path %></h3></div>
+  <div class="col-2-12">
+    <h3><%= link_to 'About', welcome_about_path %></h3>
+  </div>
+  <div class="col-2-12">
+    <h3><%= link_to 'Sign In', new_user_session_path %></h3>
+  </div>
 </div>

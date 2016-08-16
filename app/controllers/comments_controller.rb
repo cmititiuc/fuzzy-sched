@@ -39,10 +39,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html {
-          redirect_to(
-            params[:return] ? params[:return] : @commentable,
-            notice: "Comment created."
-          )
+          redirect_to(params[:return] || @commentable, notice: "Comment created.")
         }
         format.js { render :create, :locals => { notice: 'Comment created.' }}
       else

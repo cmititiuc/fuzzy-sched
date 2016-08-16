@@ -28,7 +28,7 @@ h1, h2, h3 {
 }
 
 #nav_links_container {
-  margin-bottom: 4em;
+  text-align: center;
 }
 
 .grid div, li, p {
