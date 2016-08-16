@@ -43,11 +43,11 @@
         by: <%= post.user.email.gsub(/@.*/, '') %>
       </p>
       <%
-        body = RedCloth.new(post.body.truncate(600))
+        body = RedCloth.new(post.body.truncate(400))
         body.filter_html = true
       %>
       <%= body.to_html.html_safe %>
-      <%= link_to 'Read more', post if post.body.length > 600 %>
+      <%= link_to 'Read more', post if post.body.length > 400 %>
     </div>
   <% end %>
 </div>

@@ -2,152 +2,19 @@
 <%#= render :partial => 'header', :locals => { :css_class => 'grid header-ghost' } %>
 
 <div class="grid grid-pad">
-  <div class="col-3-12" style="float: right;">
+  <div class="col-9-12">
     <h1 style="text-align: center; margin-bottom: 2em">Sample Work</h1>
     <h2>asocial-feed</h2>
     <p><%= link_to 'link', 'http://asoc.ophect.me' %> | <%= link_to 'source code', 'https://github.com/cmititiuc/asocial-feed' %></p>
     <p>A small Ruby on Rails application with a PostsgreSQL database, deployed on a Linux VPS using Dokku.</p>
     <p>It is a personal message feed.  Users can leave private notes for themselves.</p>
   </div>
-  <div class="col-9-12">
-    <h1 style="text-align: center;">Ruby on Rails Workstation Setup on a Lenovo T450</h1>
-    <p style="padding-bottom: 10px;">Wednesday, May 13, 2015</p>
-    <ol>
-      <li>
-        <h2>Install Ubuntu</h2>
-        <ol>
-          <li>Turn off UEFI (2 settings in BIOS: one about turning off UEFI, another about installing non-UEFI OS's)</li>
-          <li>Download "Vivid Vervet" ubuntu-15.04-desktop-amd64.iso</li>
-          <li>Use gparted to create a single FAT32 partition on a USB drive.  It has to be FAT32 for usb-creator.</li>
-          <li>Use usb-creator (Ubuntu's start disk utility) to make a live USB</li>
-          <li>Boot from live USB</li>
-          <li>Set up internet connection</li>
-          <li>Select "Install ubuntu"</li>
-          <li>Partition (eg I selected 'Something else' and partitioned like so: 19999 MB to /, 16012 MB swap, 480105 MB /home)</li>
-          <li>Select 'Encrypt home folder'</li>
-          <li>
-            After install finishes and system reboots: System settings > privacy
-            <ul>
-              <li>search > include online: off</li>
-              <li>files and applications > record: off</li>
-              <li>power management > shutdown on low power</li>
-              <li>touchpad settings > deselect 'tap to click'</li>
-            </ul>
-          </li>
-          <li>Remove Amazon from launcher (right click)</li>
-          <li>In apps menu, right click on Amazon icon and uninstall</li>
-          <li>Set filter results to 'local apps'</li>
-          <li>sudo apt-get update</li>
-          <li>sudo apt-get dist-upgrade</li>
-          <li>Restart the system</li>
-        </ol>
-      </li>
-      <li>
-        <h2>Set up Firefox</h2>
-        <ul>
-          <li>preferences > search to duckduckgo</li>
-          <li>set "do not track"</li>
-          <li>old tabs on restart</li>
-          <li>set firefox tracking protection (https://support.mozilla.org/en-US/kb/tracking-protection-firefox) (this actually breaks some sites eg http://redditplayer.phoenixforgotten.com)</li>
-          <li>unset "enhanced" tabs</li>
-          <li>install ublock addon</li>
-        </ul>
-      </li>
-      <li>
-        <h2>Get rid of touchpad bottom button touch area</h2>
-        <ol>
-          <li>cp /usr/share/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/</li>
-          <li>then edit that section and set all the %'s to 0's</li>
-          <li>log out and back in</li>
-        </ol>
-      </li>
-      <li>
-        <h2>Set up GitHub</h2>
-        <ul>
-          <li>add ssh key (https://help.github.com/articles/generating-ssh-keys/)</li>
-          <li>install git sudo apt-get install git</li>
-          <li>set up username (https://help.github.com/articles/setting-your-username-in-git/)</li>
-          <li>set up email (https://help.github.com/articles/setting-your-email-in-git/)</li>
-        </ul>
-      </li>
-      <li><h2>Install PostgreSQL</h2></li>
-        <ul>
-          <li>
-            http://stackoverflow.com/questions/11092807/installing-postgresql-on-ubuntu-for-ruby-on-rails
-          </li>
-          <li>
-            Allow local connections without a password<br />https://gist.github.com/p1nox/4953113
-          </li>
-        </ul>
-      <li>
-      <h2>Install RVM, Ruby and Rails</h2>
-        <ol>
-          <li>sudo apt-get install curl</li>
-          <li>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</li>
-          <li>\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.2.2</li>
-          <li>set 'run command as login shell' option in terminal profile</li>
-          <li>restart terminal</li>
-          <li>type type rvm | head -n 1</li>
-          <li>should say rvm is a function (not rvm is hashed)</li>
-          <li>git clone the app from repo</li>
-          <li>bundle install</li>
-          <li>
-            <span style="text-decoration: line-through;">sudo apt-get install nodejs</span>
-            <ol>
-              <li>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash</li>
-              <li>nvm ls-remote</li>
-              <li>nvm install 6.3.1</li>
-              <li>nvm use 6.3.1 --default</li>
-            </ol>
-          </li>
-          <li>rake db:setup</li>
-          <li>rails s</li>
-        </ol>
-      </li>
-      <li>
-        <h2>Install VLC</h2>
-        <ul>
-          <li>sudo apt-get install vlc</li>
-          <li>Uncheck "Accelerated Video Output" in video preferences</li>
-        </ul>
-      </li>
-      <li>
-        <h2>Install Sublime Text 3</h2>
-        <ul>
-          <li><%= link_to 'http://www.sublimetext.com/3', 'http://www.sublimetext.com/3' %></li>
-          <li>
-            create ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings<br />
-            <code>
-              {<br />
-              "tab_size": 2,<br />
-              "translate_tabs_to_spaces": true,<br />
-              "word_wrap": false,<br />
-              "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "tmp"]<br />
-              }<br />
-            </code>
-          </li>
-        </ul>
-      </li>
-    </ol>
 
-    <h3>TO DO</h3>
-    <ul>
-      <li>security (specifically, firewall)</li>
-    </ul>
-
-    <h3>KNOWN ISSUES</h3>
-    <ul>
-      <li>
-        https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1457369<br />
-        installing a newer kernel fixed the issue (for example, 4.1.0-040100rc2-generic and HDMI audio works)<br />
-        https://wiki.ubuntu.com/Kernel/MainlineBuilds
-      </li>
-      <li>
-        screen flicker after suspend and resume<br />
-        looks like it's fixed in 4.1-rc5<br />
-        https://github.com/torvalds/linux/commit/bb4358973ae2c0b7ead1fdd36e0e75943009e60c
-      </li>
-    </ul>
+  <div class="col-3-12">
+    <h1 style="text-align: center; margin-bottom: 2em">Writings</h1>
+    <% current_user.posts.order('created_at DESC').each do |post| %>
+      <p><%= link_to post.title, post %></p>
+    <% end %>
   </div>
 </div>
 
