@@ -30,7 +30,7 @@
       <p style="padding-bottom: 10px; text-align: center;">
         published: <%= post.created_at.to_date.strftime('%a, %b %d, %Y') %>
         <br />
-        by: <%= post.user.email %>
+        by: <%= post.user.email.gsub(/@.*/, '') %>
       </p>
       <%
         body = RedCloth.new(post.body)
