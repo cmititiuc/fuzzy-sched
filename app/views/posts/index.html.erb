@@ -3,11 +3,11 @@
 
 <div class="grid grid-pad">
   <% if user_signed_in? %>
-    <div class="col-9-12">
+    <div class="col-8-12">
       <%= link_to 'New Post', new_post_path, :style => 'float: right;' %>
     </div>
   <% end %>
-  <div class="col-3-12" style="float: right;">
+  <div class="col-4-12" style="float: right;">
     <h1 style="text-align: center; margin-bottom: 2em">Sample Work</h1>
     <h2>asocial-feed</h2>
     <p>
@@ -25,7 +25,7 @@
     </p>
   </div>
   <% @posts.each do |post| %>
-    <div class="col-9-12">
+    <div class="col-8-12">
       <% if user_signed_in? && current_user.posts.find_by_id(post.id) %>
         <div style="text-align: right;">
           <%= link_to 'Edit', edit_post_path(post) %>
