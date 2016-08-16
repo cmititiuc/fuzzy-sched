@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="grid grid-pad">
-  <div class="col-9-12">
+  <div class="col-8-12">
     <% if user_signed_in? && current_user.posts.find_by_id(@post.id) %>
       <div style="float: right;">
         <%= link_to 'Edit', edit_post_path(@post) %>
