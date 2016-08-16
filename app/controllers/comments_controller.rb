@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       if params[:filter] == 'nil'
         @comments = @comments.where('commentable_id IS NULL')
       else
-        @comments = @comments.where('commentable_id = ?', params[:filter]) if params[:filter]
+        @comments = @comments.where('commentable_id = ?', params[:filter])
       end
     end
   end
@@ -38,8 +38,13 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to params[:return] ? params[:return] : @commentable, notice: "Comment created." }
-        format.js { render :create, :locals=>{ notice: 'Comment created.' } }
+        format.html {
+          redirect_to(
+            params[:return] ? params[:return] : @commentable,
+            notice: "Comment created."
+          )
+        }
+        format.js { render :create, :locals => { notice: 'Comment created.' }}
       else
         format.html { render :new }
         format.js
@@ -50,9 +55,19 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to params[:return_path] ? params[:return_path] : @comment, notice: 'Comment was successfully updated.' }
+        format.html {
+          redirect_to(
+            params[:return_path] ? params[:return_path] : @comment,
+            notice: 'Comment was successfully updated.'
+          )
+        }
         format.json { render :show, status: :ok, location: @comment }
-        format.js { render :update, :locals=>{ notice: 'Comment was successfully updated.' } }
+        format.js {
+          render(
+            :update,
+            :locals => { notice: 'Comment was successfully updated.' }
+          )
+        }
       else
         format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -64,14 +79,22 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to params[:return_path] ? params[:return_path] : comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html {
+        redirect_to(
+          params[:return_path] ? params[:return_path] : comments_url,
+          notice: 'Comment was successfully destroyed.'
+        )
+      }
       format.json { head :no_content }
-      format.js { render :plain=>'Comment was successfully destroyed.' }
+      format.js { render :plain => 'Comment was successfully destroyed.' }
     end
   end
 
   def get_comment # maybe rename this 'get_form'?
-    render :partial=>'comments/form', :locals=>{ :height=>params[:height], :return_path=>params[:return_path] }
+    render(:partial => 'comments/form', :locals => {
+      :height => params[:height],
+      :return_path => params[:return_path]
+    })
   end
 
   private
@@ -82,6 +105,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:comment, :commentable_type, :commentable_id, :return)
+      permitted = %i(comment commentable_type commentable_id return)
+      params.require(:comment).permit(*permitted)
     end
 end

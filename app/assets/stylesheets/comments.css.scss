@@ -7,7 +7,7 @@ form.new_comment div.field, form.edit_comment div.field {
 }
 td.comment_actions a { font-size: x-small; }
 td { padding: 1em; vertical-align: top; }
-textarea { margin: 0; padding: 0; width: 100%; height: 41px; }
+textarea#comment_comment { margin: 0; padding: 0; width: 100%; height: 41px; }
 td.commentable_link a { font-size: medium; }
 td.comment { line-height: 1.5em; }
 td p { padding-top: 0; margin-top: 0; }

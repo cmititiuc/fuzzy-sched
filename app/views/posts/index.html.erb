@@ -1,0 +1,42 @@
+<%= render :partial => 'welcome/header', :locals => { :css_class => 'grid header' } %>
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+  <div><%= link_to 'New Post', new_post_path %></div>
+<% end %>
+
+<div class="grid grid-pad">
+  <div class="col-3-12" style="float: right;">
+    <h1 style="text-align: center; margin-bottom: 2em">Sample Work</h1>
+    <h2>asocial-feed</h2>
+    <p><%= link_to 'link', 'http://asoc.ophect.me' %> | <%= link_to 'source code', 'https://github.com/cmititiuc/asocial-feed' %></p>
+    <p>A small Ruby on Rails application with a PostsgreSQL database, deployed on a Linux VPS using Dokku.</p>
+    <p>It is a personal message feed.  Users can leave private notes for themselves.</p>
+  </div>
+  <% @posts.each do |post| %>
+    <div class="col-9-12">
+      <% if user_signed_in? && current_user.posts.find_by_id(post.id) %>
+        <div style="text-align: right;">
+          <%= link_to 'Show', post %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy',
+            post,
+            method: :delete,
+            data: { confirm: 'Are you sure?' }
+          %>
+        </div>
+      <% end %>
+      <h1 style="text-align: center;"><%= post.title %></h1>
+      <p style="padding-bottom: 10px; text-align: center;">
+        published: <%= post.created_at.to_date.strftime('%a, %b %d, %Y') %>
+        <br />
+        by: <%= post.user.email %>
+      </p>
+      <%
+        body = RedCloth.new(post.body)
+        body.filter_html = true
+      %>
+      <%= body.to_html.html_safe %>
+    </div>
+  <% end %>
+</div>
