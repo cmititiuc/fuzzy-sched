@@ -12,13 +12,14 @@
   <% end %>
   <div class="field">
     <%= f.select :commentable_id,
-                 [['-- None --', '']] + current_user.events.order(:name).map{ |e| [e.name, e.id] },
-                 (@comment.new_record? ? { :selected=>params[:filter] } : {}) %>
-    <%= f.hidden_field :commentable_type, :value=>'Event' %>
+      [['-- None --', '']] + current_user.events.order(:name).map { |e| [e.name, e.id] },
+      (@comment.new_record? ? { :selected => params[:filter] } : {})
+    %>
+    <%= f.hidden_field :commentable_type, :value => 'Event' %>
     <%= hidden_field_tag :return_path, return_path if local_assigns[:return_path] %>
   </div>
   <div class="field">
-    <%= f.text_area :comment, :style=>(local_assigns[:height] ? "height: #{height}px;" : '') %>
+    <%= f.text_area :comment, :style => (local_assigns[:height] ? "height: #{height}px;" : '') %>
   </div>
   <div class="actions" style="text-align: right;">
     <%= f.submit %>

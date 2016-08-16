@@ -7,35 +7,67 @@
 
 <table>
   <tr><td><h2>8</h2></td><th>Breakfasts</td><td></td></tr>
-  <% @meals.where('period = "breakfast"').each do |meal| %>
-    <tr class="meal"><td colspan="2"></td><td><%= meal.description %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% @meals.where(period: 'breakfast').each do |meal| %>
+    <tr class="meal">
+      <td colspan="2"></td>
+      <td><%= meal.description %></td>
+      <td><%= link_to 'Show', meal %></td>
+      <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
+      <td>
+        <%= link_to 'Destroy',
+          meal,
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+        %>
+      </td>
      </tr>
   <% end %>
   <tr><td><h2>1</h2></td><th>Lunches</td><td></td></tr>
-  <% @meals.where('period = "lunch"').each do |meal| %>
-    <tr class="meal"><td colspan="2"></td><td><%= meal.description %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% @meals.where(period: 'lunch').each do |meal| %>
+    <tr class="meal">
+      <td colspan="2"></td>
+      <td><%= meal.description %></td>
+      <td><%= link_to 'Show', meal %></td>
+      <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
+      <td>
+        <%= link_to 'Destroy',
+          meal,
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+        %>
+      </td>
     </tr>
   <% end %>
   <tr><td><h2>6</h2></td><th>Snacks</td><td></td></tr>
-  <% @meals.where('period = "snack"').each do |meal| %>
-    <tr class="meal"><td colspan="2"></td><td><%= meal.description %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% @meals.where(period: 'snack').each do |meal| %>
+    <tr class="meal">
+      <td colspan="2"></td>
+      <td><%= meal.description %></td>
+      <td><%= link_to 'Show', meal %></td>
+      <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
+      <td>
+        <%= link_to 'Destroy',
+          meal,
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+        %>
+      </td>
     </tr>
   <% end %>
   <tr><td><h2>10</h2></td><th>Dinners</td><td></td></tr>
-  <% @meals.where('period = "dinner"').each do |meal| %>
-    <tr class="meal"><td colspan="2"></td><td><%= meal.description %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% @meals.where(period: 'dinner').each do |meal| %>
+    <tr class="meal">
+      <td colspan="2"></td>
+      <td><%= meal.description %></td>
+      <td><%= link_to 'Show', meal %></td>
+      <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
+      <td>
+        <%= link_to 'Destroy',
+          meal,
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+        %>
+      </td>
     </tr>
   <% end %>
 </table>
