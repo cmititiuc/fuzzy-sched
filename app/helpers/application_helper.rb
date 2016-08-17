@@ -7,4 +7,8 @@ module ApplicationHelper
       link_to models.titleize, send("#{models}_path")
     end
   end
+
+  def property(property)
+    Property.find_by_key(property).try(:value) || property
+  end
 end

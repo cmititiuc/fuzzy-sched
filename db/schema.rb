@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816145953) do
+ActiveRecord::Schema.define(version: 20160816235653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20160816145953) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "key"
+    t.text     "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "properties", ["key"], name: "index_properties_on_key", unique: true, using: :btree
 
   create_table "scheduled_events", force: :cascade do |t|
     t.string   "day"
