@@ -16,3 +16,12 @@ if Rails.env == 'development'
     }).save(:validate => false)
   end
 end
+
+%w(
+  HeaderName
+  HeaderEmail
+  HeaderGitHubAccountName
+  AboutContent
+  HeaderSubtitle
+  WelcomeContent
+).each { |p| Property.create!(key: p, value: nil) }
